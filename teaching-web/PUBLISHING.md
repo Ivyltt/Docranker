@@ -14,7 +14,7 @@ per minute and offer **Load latest**; they do not reset exercises automatically.
 2. Set `githubUrl` in `site-config.json` to the real **project repository**, not a
    profile, example repository or historical reference. The button is hidden
    until this is configured.
-3. Run `python3 checks/export_code.py` to freeze the current core project code, then
+3. Run `python3 checks/export_code.py --project-dir /path/to/Docranker` to freeze the current core project code, then
    `python3 checks/build_public.py`. The generated `dist/` directory is the
    deployable static site. It excludes tests, screenshots, internal notes,
    credentials, model weights and training datasets.

@@ -1,0 +1,133 @@
+{
+  "total": 1658,
+  "totalGoldPages": 2107,
+  "rows": [
+    {
+      "id": "retrieval",
+      "label": "ColQwen2 retrieval order",
+      "recall1": 0.6121330920788097,
+      "recall3": 0.7934861278648974,
+      "recall5": 0.8491656614394852,
+      "mrr": 0.7592882991556096,
+      "ndcg5": 0.7680353871386398,
+      "fallback": null,
+      "fallbackRate": null,
+      "total": 1658
+    },
+    {
+      "id": "base",
+      "label": "Base: no task-specific SFT",
+      "recall1": 0.6109268194611981,
+      "recall3": 0.7913751507840772,
+      "recall5": 0.8491656614394852,
+      "mrr": 0.758313228789707,
+      "ndcg5": 0.7670468016003519,
+      "fallback": 1607,
+      "fallbackRate": 0.9692400482509047,
+      "total": 1658
+    },
+    {
+      "id": "sft",
+      "label": "SFT900 merged",
+      "recall1": 0.63889223964616,
+      "recall3": 0.8181041415359871,
+      "recall5": 0.8491656614394852,
+      "mrr": 0.7864595898673103,
+      "ndcg5": 0.7868463232805986,
+      "fallback": 0,
+      "fallbackRate": 0.0,
+      "total": 1658
+    },
+    {
+      "id": "grpo",
+      "label": "SFT + GRPO512",
+      "recall1": 0.6571873743466022,
+      "recall3": 0.818777643747487,
+      "recall5": 0.8491656614394852,
+      "mrr": 0.7973763570566951,
+      "ndcg5": 0.7946276444115278,
+      "fallback": 0,
+      "fallbackRate": 0.0,
+      "total": 1658
+    }
+  ],
+  "paired": {
+    "sftMinusBase": {
+      "recall1": {
+        "delta": 0.027965420184961953,
+        "low": 0.009276739043023726,
+        "high": 0.04549683353437877
+      },
+      "recall3": {
+        "delta": 0.02672899075190993,
+        "low": 0.01477658825894652,
+        "high": 0.03794380780056292
+      },
+      "recall5": {
+        "delta": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "mrr": {
+        "delta": 0.028146361077603377,
+        "low": 0.016067551266586256,
+        "high": 0.039930388017692
+      },
+      "ndcg5": {
+        "delta": 0.01979952168024668,
+        "low": 0.011364014653759299,
+        "high": 0.028274648938743128
+      }
+    },
+    "grpoMinusSft": {
+      "recall1": {
+        "delta": 0.018295134700442195,
+        "low": 0.009642641737032576,
+        "high": 0.028246883795737834
+      },
+      "recall3": {
+        "delta": 0.0006735022114998657,
+        "low": -0.0037004925613188565,
+        "high": 0.0055991154000804184
+      },
+      "recall5": {
+        "delta": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "mrr": {
+        "delta": 0.010916767189384724,
+        "low": 0.005910735826296743,
+        "high": 0.016748592681946117
+      },
+      "ndcg5": {
+        "delta": 0.00778132113092922,
+        "low": 0.004110844491880248,
+        "high": 0.011731213511164127
+      }
+    }
+  },
+  "bootstrap": {
+    "samples": 1000,
+    "seed": 42,
+    "confidence": 0.95,
+    "unit": "query",
+    "method": "percentile"
+  },
+  "protocol": {
+    "candidateCount": 5,
+    "retrievalScope": "document",
+    "goldDenominator": "All original positive_page_ids, including pages missed by retrieval",
+    "recallAggregation": "Macro: compute recall per question, then average with equal question weights",
+    "ndcg": "Binary relevance; discount 1/log2(rank+1); ideal ranking uses all gold pages up to the cutoff",
+    "fallback": "Invalid format falls back to retrieval order and counts in both metrics and fallback rate",
+    "inputSha256": "649b2b3193dadb94c3b28f088decdd4b43d7a4ad71c05daeef19efe29b871834"
+  },
+  "notes": [
+    "Fixed 1,658 questions, identical candidate images, prompts, decoding settings, and complete gold denominator.",
+    "SFT is the step-900 BF16 merged model; GRPO is the selected step-512 adapter trained from that model.",
+    "Invalid format retains retrieval order for scoring; every question stays in the denominator.",
+    "Ranking metrics do not directly assess the factual accuracy of evidence explanations."
+  ],
+  "download": "assets/sources/metrics-current.json"
+}

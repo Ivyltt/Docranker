@@ -1,9 +1,7 @@
-"""Strict, deterministic ranking rewards with no model dependencies.
+"""Strict deterministic ranking rewards with cubic rank discount.
 
-The PDF's 1/rank**3 reward is preserved. A completion must contain exactly one
-complete permutation before *either* reward is paid. This deliberately tightens
-the PDF's soft format checks: omitted, repeated or invented IDs cannot collect
-format credit or a deceptively high result reward.
+Both rewards require a rationale and one complete candidate permutation.
+Omitted, repeated, or invented IDs receive zero format and ranking credit.
 """
 
 from __future__ import annotations
