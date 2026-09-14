@@ -2,7 +2,7 @@
   "description": "Project source snapshot; GRPO implementation is under active revision.",
   "files": {
     ".gitignore": "794d245c4a16740aefb0f4932d98c854355aba57103041abb09e615f117b7a6e",
-    "README.md": "0f8131758b0c3eeaeedae4d253732a4794c7e2fbc6173934023ea024ba9e8153",
+    "README.md": "43d7463e11389579d5d44b7e2098cd2ba478aa4c0fad508612beb1064a108347",
     "configs/annotation-flash-lite.json": "057ae83b58247b1ddace01841c4b38e3b59f9f6f986eea33a6e2e41fa3945abc",
     "configs/grpo.json": "6d07c3d507de2f66412b34bc3d1d73ea4349ab598a053cd22f5718c2d0736273",
     "configs/sft.json": "c405d6143abcbff656118c0a720e1c99c75579232c9b16bc04785e6429de8c4d",

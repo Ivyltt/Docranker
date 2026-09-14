@@ -1,6 +1,6 @@
 # DocReranker · 文档检索与重排 / Document retrieval and reranking
 
-课堂网页 / Classroom: https://docreranker-classroom.dreamy-rose-3664.chatgpt.site
+课堂网页 / Classroom: https://docreranker-classroom.litong1812.chatgpt.site
 
 问题 → ColQwen2 召回真实页面 → Qwen 观察候选图片并重排。数据集提供正确页面标签；ColQwen2 提供检索分数，二者不同。训练候选可加入已知正例，正式测试只使用真实召回。
 

@@ -100,6 +100,7 @@
     "shareChapterLink": true,
     "versionNotification": true,
     "internalLinks": "HTTP 200",
-    "javascriptErrors": []
+    "javascriptErrors": [],
+    "shareOrigin": "https://docreranker-classroom.litong1812.chatgpt.site"
   }
 }

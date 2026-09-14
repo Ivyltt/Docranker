@@ -43,7 +43,7 @@ def main():
         page.evaluate("navigator.clipboard.writeText = async text => {window.sharedLesson = text}")
         page.locator('#share-link').click()
         assert page.evaluate('window.sharedLesson') == (
-            'https://docreranker-classroom.dreamy-rose-3664.chatgpt.site/?lang=en#lab')
+            'https://docreranker-classroom.litong1812.chatgpt.site/?lang=en#lab')
         page.route('**/version.json', lambda route: route.fulfill(json={'version':'next-test-version'}))
         page.clock.fast_forward(61000)
         expect(page.locator('#update-notice')).to_be_visible()
