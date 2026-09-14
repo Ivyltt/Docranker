@@ -292,13 +292,13 @@ def main():
             go('results')
             for metric in ['recall1','recall3','recall5','mrr','ndcg5']:
                 page.locator('#metric-select').select_option(metric)
-                expect(page.locator('.bar-row')).to_have_count(3)
+                expect(page.locator('.bar-row')).to_have_count(4)
                 assert 'NaN' not in page.locator('#metric-chart').inner_text()
             open_detail('replay-details')
-            for case in range(3):
+            for case in range(page.evaluate('CLASS_DATA.cases.length')):
                 page.locator('#case-select').select_option(str(case))
                 expect(page.locator('#case-body .gold-tag')).to_have_count(0)
-                for variant in ['retrieval','base','sft']:
+                for variant in ['retrieval','base','sft','grpo']:
                     page.locator(f'[data-variant="{variant}"]').click()
                     expect(page.locator('#case-body .rank-chip')).to_have_count(5)
                     if variant != 'retrieval':
@@ -459,7 +459,7 @@ def main():
                       'MaxSim row-max-and-sum arithmetic','top-K coverage and unchanged gold',
                       'LoRA rank arithmetic','chapter quiz feedback',
                       'original source record','page4-to-slot3 mapping','exact saved model outputs',
-                      'English completeness','language persistence and expanded state','all 3 cases',
+                      'English completeness','language persistence and expanded state','all 5 cases with merged SFT and GRPO512',
                       'new teaching interaction state across languages','original PNG zoom',
                       'default-open loss and reward labs','loss slider','metric selection','manual ranking',
                       'equal rewards','source downloads','code copy','local links','mobile menu',

@@ -24,6 +24,12 @@ def main():
                 page.goto(args.url + '?lang=' + lang + '#' + chapter)
                 expect(page.locator(f'.nav-item[href="#{chapter}"]')).to_have_attribute('aria-current','page')
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
+                if chapter == 'results':
+                    expect(page.locator('.score-card strong')).to_have_text(['61.09%','63.89%','65.72%'])
+                    expect(page.locator('.bar-row')).to_have_count(4)
+                if chapter == 'grpo':
+                    expect(page.locator('.exposure-cards strong')).to_have_text(['512','2,048','173'])
+                    expect(page.locator('#lesson-root')).to_contain_text('65.72%')
                 urls = page.eval_on_selector_all('[href],[src]',
                     'nodes => nodes.map(n => n.getAttribute("href") || n.getAttribute("src"))')
                 for url in urls:

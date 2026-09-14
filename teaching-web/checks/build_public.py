@@ -32,7 +32,7 @@ def build() -> None:
         shutil.rmtree(PUBLIC)
     PUBLIC.mkdir()
     main_files = ["index.html", "styles.css", "app.js", "lesson-content.js",
-                  "foundation-content.js", "design-content.js",
+                  "foundation-content.js", "design-content.js", "experiment-content.js",
                   "assets/teaching-data.js", "assets/teaching-i18n.js"]
     for name in main_files:
         target = PUBLIC / name
@@ -47,7 +47,7 @@ def build() -> None:
     # entire training project (which contains private runtime credentials/data).
     names = [p.name for p in (ROOT / "assets/sources").glob("src__*.txt")]
     names += ["reits-original.json", "training-config-snapshot.json",
-              "docs__base-evaluation.md.txt", "docs__sft-evaluation.md.txt"]
+              "current-test-report.md.txt", "metrics-current.json", "grpo-config-snapshot.json"]
     for name in names:
         shutil.copy2(ROOT / "assets/sources" / name, sources / name)
     # The source snapshot has extra maintenance metadata. Publish only fields
@@ -57,21 +57,21 @@ def build() -> None:
     visible_case_fields = ['id','title','query','queryZh','goldPageIds',
                            'goldCandidateIndices','pages','variants','review',
                            'lesson','selectionReason']
-    compact = {'metrics': {'rows': full['metrics']['rows']},
+    compact = {'metrics': {key: full['metrics'][key] for key in ['rows','paired']},
                'sftExample': {key: full['sftExample'][key]
                               for key in ['messages','pages','targetRanking']},
                'cases': [{key: row[key] for key in visible_case_fields if key in row}
                          for row in full['cases']],
-               'code': full['code']}
+               'code': full['code'], 'grpoExperiment': full['grpoExperiment']}
     data_path.write_text('// Public classroom evidence; displayed values are unchanged.\n'
                          'window.CLASS_DATA = ' + json.dumps(compact, ensure_ascii=False, indent=2) + ';\n')
     # Keep the provenance useful for students without unpublished source paths,
     # preparation notes or unrelated historical asset bookkeeping.
     evidence = {
-        "description": "Saved Base/SFT classroom evidence; no new model calls",
+        "description": "Saved Base/SFT900 merged/GRPO512 evidence; no new model calls",
         "evaluationQueries": 1658,
         "trainingExamples": 7200,
-        "results": ["ColQwen2 retrieval", "Base Qwen", "SFT Qwen"],
+        "results": ["ColQwen2 retrieval", "Base Qwen", "SFT900 merged", "SFT + GRPO512"],
         "files": {str(p.relative_to(PUBLIC)): digest(p)
                   for p in sorted((PUBLIC / "assets").rglob("*")) if p.is_file()},
     }

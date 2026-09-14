@@ -7,7 +7,7 @@
   "dryrun": ".venv/bin/python -m docreranker.training.sft \\\n  --config configs/sft.json \\\n  --data data/sft-flash-lite.jsonl \\\n  --output outputs/student-sft \\\n  --exclude-queries data/evaluation/queries.jsonl --dry-run",
   "train": "CUDA_VISIBLE_DEVICES=0 .venv/bin/python -m docreranker.training.sft \\\n  --config configs/sft.json \\\n  --data data/sft-flash-lite.jsonl \\\n  --model models/qwen2.5-vl-7b \\\n  --output outputs/student-sft \\\n  --exclude-queries data/evaluation/queries.jsonl",
   "merge": ".venv/bin/python -m docreranker.training.merge \\\n  --adapter outputs/student-sft \\\n  --output outputs/student-sft-merged --dtype bfloat16",
-  "predict": ".venv/bin/python -m docreranker.inference \\\n  --input data/evaluation_candidates.jsonl \\\n  --output outputs/student-base-predictions.jsonl \\\n  --model models/qwen2.5-vl-7b --device cuda:0 --dtype bfloat16 \\\n  --max-new-tokens 256 --min-pixels 200704 --max-pixels 401408\n\n.venv/bin/python -m docreranker.inference \\\n  --input data/evaluation_candidates.jsonl \\\n  --output outputs/student-sft-predictions.jsonl \\\n  --model models/qwen2.5-vl-7b --adapter outputs/student-sft --device cuda:0 \\\n  --processor outputs/student-sft --dtype bfloat16 \\\n  --max-new-tokens 256 --min-pixels 200704 --max-pixels 401408",
+  "predict": ".venv/bin/python -m docreranker.inference \\\n  --input data/evaluation_candidates.jsonl \\\n  --output outputs/student-base-predictions.jsonl \\\n  --model models/qwen2.5-vl-7b --device cuda:0 --dtype bfloat16 \\\n  --max-new-tokens 256 --min-pixels 200704 --max-pixels 401408\n\n.venv/bin/python -m docreranker.inference \\\n  --input data/evaluation_candidates.jsonl \\\n  --output outputs/student-sft-predictions.jsonl \\\n  --model outputs/student-sft-merged --device cuda:0 \\\n  --processor outputs/student-sft-merged --dtype bfloat16 \\\n  --max-new-tokens 256 --min-pixels 200704 --max-pixels 401408",
   "evaluate": ".venv/bin/python -m docreranker.evaluation \\\n  --input data/evaluation_candidates.jsonl \\\n  --predictions outputs/student-base-predictions.jsonl \\\n  --output outputs/student-base-metrics.json\n\n.venv/bin/python -m docreranker.evaluation \\\n  --input data/evaluation_candidates.jsonl \\\n  --predictions outputs/student-sft-predictions.jsonl \\\n  --output outputs/student-sft-metrics.json",
   "existing": ".venv/bin/python -m docreranker.evaluation \\\n  --input data/evaluation_candidates.jsonl \\\n  --predictions outputs/flash-lite-reference4/evaluation/base-predictions.jsonl \\\n  --output outputs/student-existing-base-metrics.json\n\n.venv/bin/python -m docreranker.evaluation \\\n  --input data/evaluation_candidates.jsonl \\\n  --predictions outputs/flash-lite-reference4/evaluation/sft-predictions.jsonl \\\n  --output outputs/student-existing-sft-metrics.json",
   "annotation": ".venv/bin/python -m docreranker.annotation \\\n  --input data/train_candidates.jsonl \\\n  --output outputs/student-annotation-preview.jsonl \\\n  --model google/gemini-2.5-flash-lite \\\n  --exclude-queries data/annotation-excluded-query-ids.jsonl \\\n  --limit 4",
@@ -71,7 +71,7 @@ positive_ids: [3]  # 校验/评分元数据，不写入模型 prompt</code></pre
 </details>`,
       grpo: String.raw`
 <p class="lead"><strong>GRPO（Group Relative Policy Optimization，组相对策略优化）从模型多次尝试的得分差异中学习。</strong>在这条教学流程里，从 SFT 后的 Qwen 出发，继续改进给候选页排序的行为。</p>
-<div class="callout">GRPO 实现仍由另一个进程修改。本节讲通用原理；奖励、组大小与裁剪数字均为人工教学示意，不代表新实验配置或结果。</div>
+<div class="callout">先用人工小例子理解组内奖励与更新，再在本节后半部分查看我们已完成的 GRPO512 训练过程和同一测试集结果。</div>
 <h3>1 · 从模仿一份示范，到比较多次尝试</h3>
 <p><strong>策略（policy）</strong>是模型在已有上下文下对下一个 token 给出的概率分布；按概率采样，同一道题可以生成不同证据与排列。</p>
 <ol>
@@ -101,7 +101,7 @@ positive_ids: [3]  # 校验/评分元数据，不写入模型 prompt</code></pre
 <tr><td>训练材料</td><td>问题、图片、固定示范答案</td><td>问题、图片、评分所需 gold；训练中生成多份答案</td></tr>
 <tr><td>学习信号</td><td>目标 token 的交叉熵</td><td>奖励得到的相对优势</td></tr>
 <tr><td>希望提高什么</td><td>示范答案的生成概率</td><td>组内较高奖励回答的生成概率</td></tr>
-<tr><td>共同检验</td><td colspan="2">在未参与训练的新题上计算排序指标，并检查页面证据是否真实</td></tr>
+<tr><td>共同检验</td><td colspan="2">在同一测试集上计算排序指标，并检查页面证据是否真实</td></tr>
 </tbody></table>
 <p>整组同分，相对奖励优势均为 0；启用 KL 时仍可能存在其约束信号。组内最好也可能答错。本例奖励检查格式与排序，<strong>不会核实证据文字真假</strong>；训练奖励上升也不等于独立测试指标上升。下面改变两份输出，观察这些差别。</p>`,
       lab: String.raw`
@@ -129,7 +129,7 @@ ${code(commands.train)}
 <p><strong>核对：</strong><code>outputs/student-sft</code> 中有 adapter、processor 和 <code>docreranker_training.json</code>，记录为 <code>dry_run: false</code> 且 <code>global_step &gt; 0</code>。完整 7,200 题、1 epoch、单卡 batch 1 × 累积 8，预期 900 次更新。</p>
 <p>若没有课程模型目录，把 <code>--model</code> 改为 <code>Qwen/Qwen2.5-VL-7B-Instruct</code>，首次运行会下载权重。显存不足时检查图像设置；改变设置后需记录下来。合并需要足够主机内存与磁盘：</p>
 ${code(commands.merge)}
-<p><strong>核对：</strong>合并目录包含完整权重与 processor。下一步示范使用“基础模型 + adapter”；合并模型也可直接用于推理。</p>
+<p><strong>核对：</strong>合并目录包含完整权重与 processor。下一步使用这份合并模型推理，与课堂 SFT900 merged 的对照一致。</p>
 </details>
 <details><summary>5 · 对照：固定同一候选，分别预测 Base 与 SFT</summary>
 <p>先完成第 4 步。保持问题、图片、提示、生成长度和评估规则相同：</p>
@@ -211,7 +211,7 @@ positive_ids: [3]  # Validation/scoring metadata; excluded from the prompt</code
 </details>`,
       grpo: String.raw`
 <p class="lead"><strong>GRPO (Group Relative Policy Optimization) learns from score differences between the model's own attempts.</strong> In this teaching workflow, we start from SFT-trained Qwen and continue improving its candidate-page rankings.</p>
-<div class="callout">Another process is revising the GRPO implementation. This section covers general principles. Rewards, group sizes and clipping numbers are invented teaching examples, not new experiment settings or results.</div>
+<div class="callout">First use small invented examples to understand rewards and updates. The second half explains our completed GRPO512 training run and its results on the same test set.</div>
 <h3>1 · From imitating one demonstration to comparing attempts</h3>
 <p>A <strong>policy</strong> is the model's probability distribution over the next token given its context. Sampling from those probabilities can produce different evidence summaries and rankings for one question.</p>
 <ol>
@@ -241,7 +241,7 @@ positive_ids: [3]  # Validation/scoring metadata; excluded from the prompt</code
 <tr><td>Training material</td><td>Questions, images and fixed demonstrations</td><td>Questions, images and gold labels for scoring; multiple answers generated during training</td></tr>
 <tr><td>Learning signal</td><td>Cross-entropy on target tokens</td><td>Relative advantages from rewards</td></tr>
 <tr><td>What becomes more likely?</td><td>Demonstrated answers</td><td>Answers with relatively higher group rewards</td></tr>
-<tr><td>Shared evaluation</td><td colspan="2">Measure ranking quality on unseen questions and check whether page evidence is factual</td></tr>
+<tr><td>Shared evaluation</td><td colspan="2">Measure ranking quality on the same test set and check whether page evidence is factual</td></tr>
 </tbody></table>
 <p>Equal group rewards give zero relative-reward advantages; an enabled KL term may still contribute a constraint signal. The best attempt in a group can still be wrong. This reward checks formatting and ranking; <strong>it does not verify the truth of evidence text</strong>. Higher training reward need not improve independent test metrics. Change the two outputs below to explore these differences.</p>`,
       lab: String.raw`
@@ -269,7 +269,7 @@ ${code(commands.train)}
 <p><strong>Check:</strong> <code>outputs/student-sft</code> contains an adapter, processor and <code>docreranker_training.json</code>, with <code>dry_run: false</code> and <code>global_step &gt; 0</code>. With 7,200 examples, one epoch, batch 1 and accumulation 8 on one GPU, expect 900 updates.</p>
 <p>Without the course model directory, change <code>--model</code> to <code>Qwen/Qwen2.5-VL-7B-Instruct</code>; the first run downloads weights. If GPU memory runs out, inspect image settings and document any changes. Merging needs sufficient host memory and disk space:</p>
 ${code(commands.merge)}
-<p><strong>Check:</strong> the merged directory contains full weights and a processor. The next step uses the base model plus adapter to show their relationship; the merged model can also run inference.</p>
+<p><strong>Check:</strong> the merged directory contains full weights and a processor. The next step uses this merged model for inference, matching the classroom’s SFT900 merged comparator.</p>
 </details>
 <details><summary>5 · Comparison: predict with Base and SFT on identical candidates</summary>
 <p>Complete step 4 first. Keep questions, images, prompts, generation length and evaluation rules the same:</p>

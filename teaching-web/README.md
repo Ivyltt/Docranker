@@ -12,7 +12,7 @@ Unzip the complete folder and open `index.html` in a browser. The default starti
 4. **构造监督答案 / Build the target** — 正例与困难负例、Gemini 逐页笔记与文本精炼的目的和分工、精炼前后例子、随机打乱与完整目标排列。 Follow per-page notes, refinement and code assembly, including what each stage receives and produces.
 5. **用 SFT 学会重排 / Learn with SFT** — 训练输入与目标、token 损失、反向传播、LoRA 与 rank，再到加载适配器进行推理。 Understand what is learned, which parameters change and how the trained model is used.
 6. **比较训练前后 / Compare the results** — 纯检索、未做本任务 SFT 的 Base 与 SFT；阅读指标、真实改善和退步案例。 Compare the same candidate sets and inspect both aggregate results and saved outputs.
-7. **GRPO 基础 / GRPO basics** — 同题多次尝试、格式与排序奖励、组内相对优势及更新约束。 Learn the mechanism with artificial reward examples; ongoing experimental settings are separate.
+7. **GRPO 原理与结果 / GRPO & results** — 同题多次尝试、格式与排序奖励、组内相对优势及更新约束。 Learn the mechanism with toy examples, then inspect the completed training run and same-test-set results.
 8. **代码与实践 / Code & practice** — 按步骤跟做、查看输入输出、复制命令、打开源码和项目报告。 Follow the project steps with commands, source files and project reports.
 
 概念章节按“先理解 → 看例子 → 动手算或操作 → 检查理解”展开，并提供带反馈的小测。基础概念、关键公式和教学例子直接可见；源码、数据准备、工程细节和详细核查材料按需展开。原始代码、模型输出和下载报告保留原文；英文界面标出中文原始资料。
@@ -59,10 +59,10 @@ Use arrow keys for lessons, `/` for the glossary, and `P` for presentation mode.
 - Original REITs annotation: dataset page ID 4 → retrieval candidate 1 → shuffled training candidate 3. Retrieval already ranked it first; this example illustrates the data flow, not an SFT improvement.
 - 该文档的7页是官方过滤版数据提供的全部可用页 `[1,4,5,15,16,20,21]`，不代表原始幻灯片总共只有7页。
 - Its seven available source pages are not a claim that the original slide deck has only seven pages.
-- Base/SFT 使用已完成的 1,658 题固定测试快照。回退与完整 gold 分母保留；案例的原始输出和人工核查仍可展开。
-- Base/SFT results use the saved complete 1,658-query test snapshot, retaining fallbacks and all labeled relevant pages. Original case outputs and human reviews remain available.
-- GRPO 没有接入正在修改的新实验；本轮没有改动训练代码、数据或模型。
-- The ongoing GRPO experiment is not imported. This revision does not change training code, datasets or models.
+- Base、SFT900 merged、SFT + GRPO512 使用同一 1,658 题固定测试快照。回退与完整 gold 分母保留；案例的原始输出和人工核查仍可展开。
+- Base, SFT900 merged and SFT + GRPO512 use the same complete 1,658-query test snapshot, retaining fallbacks and all labeled relevant pages. Original case outputs and human reviews remain available.
+- GRPO512 已接入完成的结果、实际训练统计和两个改善／退步案例。
+- Completed GRPO512 results, training counts and two improvement/regression cases are included.
 
 
 
@@ -93,6 +93,7 @@ Consult the command output and `checks/verification.json` after execution, check
 公开地址与 GitHub 项目链接在 `site-config.json` 配置。公开构建：
 
 ```bash
+python3 checks/update_results.py
 python3 checks/export_code.py
 python3 checks/build_public.py
 ```

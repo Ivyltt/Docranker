@@ -30,9 +30,13 @@ def main():
     for name in ['pyproject.toml', 'uv.lock']:
         files[name] = (PROJECT / name).read_bytes()
     files['README.md'] = (ROOT / 'PROJECT_README.md').read_bytes()
+    # Preserve the reviewed run settings separately from generic course defaults.
+    run_config = ROOT / 'assets/sources/grpo-config-snapshot.json'
+    if run_config.exists():
+        files['experiment/grpo-config.json'] = run_config.read_bytes()
     files['.gitignore'] = b'.env\n.env.*\n.venv/\n__pycache__/\n*.pyc\n.pytest_cache/\n.ruff_cache/\ndata/\nmodels/\noutputs/\n*.egg-info/\n'
     files['SOURCE_MANIFEST.json'] = (json.dumps({
-        'description': 'Project source snapshot; GRPO implementation is under active revision.',
+        'description': 'Classroom implementation snapshot; experiment/ contains completed-run settings.',
         'files': {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())}
     }, indent=2) + '\n').encode()
     target = ROOT / '.openai/project-code.zip'

@@ -51,3 +51,6 @@
 @media(max-width:680px){.top-actions{gap:4px}.top-actions .quiet-button{padding:6px 8px;font-size:11px}.top-actions kbd{display:none}.update-notice{right:16px;bottom:16px}}
 
 @media(max-width:400px){#glossary-open{font-size:0;padding:6px 8px}#glossary-open::before{content:"?";font-size:13px}}
+
+/* The three trained-model scores share one test set; retrieval stays in the chart. */
+.score-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0}.score-card{display:flex;flex-direction:column;gap:8px}.score-card strong,.exposure-cards strong{font-size:32px;color:var(--green);line-height:1.2}.score-card small{color:var(--muted)}.score-card.grpo{border-color:var(--green);background:var(--green-light,#edf5ef)}.exposure-cards .card{display:flex;flex-direction:column;gap:9px}.score-card span{font-weight:650}.bar-row>span:first-child{overflow-wrap:anywhere}@media(max-width:600px){.score-cards{grid-template-columns:1fr;gap:10px}.score-card{display:grid;grid-template-columns:1fr auto;align-items:center}.score-card small{grid-column:1/-1}.score-card strong{font-size:30px}.exposure-cards{grid-template-columns:1fr}}

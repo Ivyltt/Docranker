@@ -17,8 +17,12 @@ Question → ColQwen2 retrieves real pages → Qwen reads the candidate images a
 | `training/data.py` | Preserve real candidate images in student training inputs |
 | `training/sft.py` | Learn the evidence and ranking targets with LoRA |
 | `training/merge.py` | Merge an SFT adapter into the base model |
-| `training/grpo.py`, `training/rewards.py` | Current GRPO implementation and reward functions; revision in progress |
+| `training/grpo.py`, `training/rewards.py` | GRPO implementation and reward functions; selected checkpoint 512 |
 | `inference.py`, `evaluation.py` | Generate rankings and measure retrieval/reranking results |
+
+`experiment/grpo-config.json` 保存本轮实际设置；`configs/` 是通用课堂默认设置。复现本轮需准备相同格式的训练图片与标签，并将模型路径指向自己的合并 SFT 权重。
+
+`experiment/grpo-config.json` preserves the actual run settings; `configs/` contains general classroom defaults. Preparing the run requires training images and labels in the documented format and a model path pointing to your merged SFT weights.
 
 学生 SFT 输入仍为问题和真实候选图片。正负标签只用于教师构造监督，不作为学生输入。教师的纯文字精炼不会把学生训练变成纯文字训练。
 
@@ -40,6 +44,12 @@ Datasets, page images and model weights are obtained separately. The classroom's
 
 ## Classroom updates
 
-网页源代码在 `teaching-web/`。公开课堂使用同一个固定链接，每分钟检查新版本并提示加载。GitHub 中的代码是最近一次推送的实现；GRPO 后续修改需重新推送，课堂目前只讲 GRPO 原理。
+网页源代码在 `teaching-web/`。公开课堂使用同一个固定链接，每分钟检查新版本并提示加载。GitHub 中的代码是最近一次推送的实现；GRPO 后续修改需重新推送，课堂展示 GRPO 原理、训练过程和同一测试集结果。
 
-Website source lives in `teaching-web/`. The public classroom keeps a stable URL and checks for a new version every minute. GitHub contains the latest pushed implementation; subsequent GRPO changes must be pushed again. The classroom currently teaches GRPO principles.
+Website source lives in `teaching-web/`. The public classroom keeps a stable URL and checks for a new version every minute. GitHub contains the latest pushed implementation; subsequent GRPO changes must be pushed again. The classroom teaches GRPO principles, the completed run and same-test-set results.
+
+## Same-test-set comparison / 同一测试集对照
+
+固定 1,658 题、相同候选图片和评估规则：Base **61.09%** → SFT900 merged **63.89%** → SFT + GRPO512 **65.72%**（Macro Recall@1）。SFT 与 GRPO 的格式回退均为零，GRPO 相对合并 SFT 增加 **1.83 个百分点**。GRPO 的第 512 步在验证阶段按预定规则选定。
+
+On the same 1,658 questions and candidate images, Macro Recall@1 is **61.09%** for Base, **63.89%** for SFT900 merged and **65.72%** for SFT + GRPO512. Both trained models have zero format fallbacks. GRPO gains **1.83 percentage points** over merged SFT; validation selected step 512 using a predefined rule.

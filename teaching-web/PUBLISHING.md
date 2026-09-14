@@ -8,6 +8,9 @@ per minute and offer **Load latest**; they do not reset exercises automatically.
 ## Edit and publish
 
 1. Edit the bilingual lesson files and verify factual changes against the code.
+   For this completed experiment, run `python3 checks/update_results.py` in the
+   course checkout to validate saved predictions and refresh the same 1,658-query
+   comparison. It performs no inference, training or teacher API calls.
 2. Set `githubUrl` in `site-config.json` to the real **project repository**, not a
    profile, example repository or historical reference. The button is hidden
    until this is configured.
@@ -31,6 +34,7 @@ repository and the research project's GitHub repository are separate.
 | `foundation-content.js` | RAG, dataset, retrieval, labels and evaluation |
 | `design-content.js` | Encoder comparison and teacher-supervision explanation |
 | `lesson-content.js` | SFT, LoRA, GRPO principles and runnable project commands |
+| `experiment-content.js` | Merged-model comparison and the completed GRPO512 run |
 | `app.js` | Navigation, bilingual state and manual arithmetic exercises |
 | `styles.css` | Classroom, mobile and presentation layouts |
 | `site-config.json` | Stable public URL and actual GitHub repository URL |

@@ -1,11 +1,12 @@
 {
-  "description": "Project source snapshot; GRPO implementation is under active revision.",
+  "description": "Classroom implementation snapshot; experiment/ contains completed-run settings.",
   "files": {
     ".gitignore": "794d245c4a16740aefb0f4932d98c854355aba57103041abb09e615f117b7a6e",
-    "README.md": "43d7463e11389579d5d44b7e2098cd2ba478aa4c0fad508612beb1064a108347",
+    "README.md": "df0e94ebc8db9abf0755881662b8d52ee3b8b1b763b8e1a125402e456b616949",
     "configs/annotation-flash-lite.json": "057ae83b58247b1ddace01841c4b38e3b59f9f6f986eea33a6e2e41fa3945abc",
     "configs/grpo.json": "6d07c3d507de2f66412b34bc3d1d73ea4349ab598a053cd22f5718c2d0736273",
     "configs/sft.json": "c405d6143abcbff656118c0a720e1c99c75579232c9b16bc04785e6429de8c4d",
+    "experiment/grpo-config.json": "a0054418d9a31eb3c03c474b34671f52c4a8054e322b79282e4ca2796a95eaee",
     "pyproject.toml": "27d38ad31e0d7c54583dbf82a1da415cca26f3d22e9783d5f6b60581f8d22d5c",
     "scripts/prepare_training_data.py": "19746230c84d76c3aff56839fabd4a9bce26290f2e787e32df0b0bbd7062c72f",
     "scripts/retrieve_candidates.py": "d7d5485b47f01531e555e0dc44a5b23c1f54cfc34be035fa6315d6a430a38195",

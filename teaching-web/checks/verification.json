@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "teaching-bilingual-v5",
+  "version": "teaching-bilingual-grpo512-v6",
   "chapters": 8,
   "languages": [
     "zh",
@@ -22,19 +22,19 @@
       "data": 1248,
       "retrieve": 4088,
       "labels": 3134,
-      "sft": 3288,
-      "results": 1266,
-      "grpo": 2405,
+      "sft": 3624,
+      "results": 1805,
+      "grpo": 3787,
       "lab": 635
     },
     "en": {
-      "rag": 2891,
+      "rag": 2897,
       "data": 3127,
       "retrieve": 10273,
       "labels": 9014,
-      "sft": 8116,
-      "results": 2983,
-      "grpo": 6625,
+      "sft": 8824,
+      "results": 3853,
+      "grpo": 10181,
       "lab": 1657
     }
   },
@@ -68,7 +68,7 @@
     "exact saved model outputs",
     "English completeness",
     "language persistence and expanded state",
-    "all 3 cases",
+    "all 5 cases with merged SFT and GRPO512",
     "new teaching interaction state across languages",
     "original PNG zoom",
     "default-open loss and reward labs",
@@ -83,24 +83,43 @@
     "progress persistence",
     "legacy chapter links"
   ],
-  "release": "public-sharing-v1",
+  "checkedAt": "2026-09-14T15:34:19.034759+00:00",
   "sourceExportTests": {
     "passed": 138,
     "skipped": 5
   },
-  "checkedAt": "2026-09-14T15:10:59.829350+00:00",
+  "savedResultsVerified": {
+    "queries": 1658,
+    "models": [
+      "Base",
+      "SFT900 merged",
+      "SFT + GRPO512"
+    ],
+    "recall1": [
+      0.6109268194611981,
+      0.63889223964616,
+      0.6571873743466022
+    ],
+    "strictParsing": true,
+    "inputFingerprint": true,
+    "fullGoldDenominator": true,
+    "pairedIntervalsRecomputed": true
+  },
   "publicChecks": {
     "status": "passed",
-    "chapters": 8,
     "languages": [
       "zh",
       "en"
     ],
-    "repositoryLink": "https://github.com/Ivyltt/Docranker",
-    "shareChapterLink": true,
+    "viewports": [
+      1440,
+      320
+    ],
+    "sameTestSetCards": true,
+    "actualGrpoCounts": true,
+    "shareChapter": true,
     "versionNotification": true,
     "internalLinks": "HTTP 200",
-    "javascriptErrors": [],
-    "shareOrigin": "https://docreranker-classroom.litong1812.chatgpt.site"
+    "javascriptErrors": []
   }
 }
