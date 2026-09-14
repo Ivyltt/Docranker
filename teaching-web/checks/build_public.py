@@ -83,7 +83,11 @@ def build() -> None:
         raise FileNotFoundError('Run checks/export_code.py before committing a release')
     shutil.copy2(snapshot, PUBLIC / 'project-code.zip')
     updated = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    release = hashlib.sha256(("".join(digest(ROOT / name) for name in main_files) + digest(PUBLIC / "project-code.zip") + json.dumps(config,sort_keys=True)).encode()).hexdigest()[:12]
+    # Include diagrams, page evidence and downloads, so an asset-only update
+    # also notifies students who already have the lesson open.
+    release_input = ''.join(str(p.relative_to(PUBLIC)) + digest(p)
+                            for p in sorted(PUBLIC.rglob('*')) if p.is_file())
+    release = hashlib.sha256((release_input + json.dumps(config, sort_keys=True)).encode()).hexdigest()[:12]
     info = {"version": release, "updatedAt": updated, "githubUrl": url,
             "publicUrl": config.get("publicUrl"), "codeDownload": "project-code.zip"}
     (ROOT / "site-info.js").write_text(
