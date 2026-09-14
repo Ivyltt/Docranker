@@ -2,7 +2,7 @@
   "description": "Classroom implementation snapshot; experiment/ contains completed-run settings.",
   "files": {
     ".gitignore": "794d245c4a16740aefb0f4932d98c854355aba57103041abb09e615f117b7a6e",
-    "README.md": "df0e94ebc8db9abf0755881662b8d52ee3b8b1b763b8e1a125402e456b616949",
+    "README.md": "12ebcf5ef16a4fd3ed70b141c9daf6871aa9859f9ada02df1991a41167559435",
     "configs/annotation-flash-lite.json": "057ae83b58247b1ddace01841c4b38e3b59f9f6f986eea33a6e2e41fa3945abc",
     "configs/grpo.json": "6d07c3d507de2f66412b34bc3d1d73ea4349ab598a053cd22f5718c2d0736273",
     "configs/sft.json": "c405d6143abcbff656118c0a720e1c99c75579232c9b16bc04785e6429de8c4d",

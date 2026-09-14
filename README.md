@@ -2,6 +2,8 @@
 
 课堂网页 / Classroom: https://docreranker-classroom.litong1812.chatgpt.site
 
+项目资源 / Project resources: [模型与训练代码 / Model & training code](src/docreranker/) · [教学网页源码 / Classroom source](teaching-web/) · [本轮 GRPO 设置 / GRPO run settings](experiment/grpo-config.json)
+
 问题 → ColQwen2 召回真实页面 → Qwen 观察候选图片并重排。数据集提供正确页面标签；ColQwen2 提供检索分数，二者不同。训练候选可加入已知正例，正式测试只使用真实召回。
 
 Question → ColQwen2 retrieves real pages → Qwen reads the candidate images and reranks them. Gold page labels come from the dataset, while retrieval scores come from ColQwen2. Training may insert a known positive page; evaluation uses actual retrieved candidates.
