@@ -1,0 +1,1 @@
+{"query_id": 11570, "query": "In what year did REITS start in the US?", "domain": "SlideVQA", "positive_passages": [{"doc_name": "realestateinvestmenttrust-141212011105-conversion-gate01", "page_id": 4}], "negative_passages": [{"doc_name": "realestateinvestmenttrust-141212011105-conversion-gate01", "page_id": 1}]}

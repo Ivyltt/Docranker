@@ -1,0 +1,76 @@
+{
+  "queryId": "train:SlideVQA:11570",
+  "createdAt": "2026-09-14T06:49:04.506239+00:00",
+  "status": "teaching_material_visual_check",
+  "summary": "本次课堂制作直接查看五张 2000×1500 训练候选原图，确认第 3 张包含 1960 的直接证据，其余四张未提供所问年份；实际保存教师简短说明与上述候选内容相符。",
+  "scope": "只核验该训练样例的五张候选，不等于验证全部 7200 条教师标注，也不是 Base/SFT 测试改善验证。",
+  "pageEvidence": [
+    {
+      "index": 1,
+      "evidence": "Agenda 目录列 REITs 结构、监管、税收等主题，没有美国起始年份。"
+    },
+    {
+      "index": 2,
+      "evidence": "标题为印度 REITs 的发展；正文讲 2007/2013/2014 年印度规则过程，下表为各国 REIT 数量和市场规模，没有美国起始年份。"
+    },
+    {
+      "index": 3,
+      "evidence": "全球演变时间轴左首格写 United States (1960)，下方正文明确 REITs started in the US in 1960，提供两处直接证据。"
+    },
+    {
+      "index": 4,
+      "evidence": "讲首次发行、上市和资产规模等要求，没有美国起始年份。"
+    },
+    {
+      "index": 5,
+      "evidence": "发行上市流程与认购规定的续页，没有美国起始年份。"
+    }
+  ],
+  "notes": [
+    "检索原序中正确页本来就排第 1；打乱后它变成输入槽 3，不能将这次编号重排称为检索质量提升。",
+    "记录页码 1、5、4、20、21 与输入槽 1–5 是不同编号；网站以输入槽解释 answer。"
+  ],
+  "source": "assets/sources/sft-example-review.json",
+  "pages": [
+    {
+      "index": 1,
+      "pageId": "[\"SlideVQA\",\"realestateinvestmenttrust-141212011105-conversion-gate01\",1]",
+      "source": "data/train/images/041559a336661a84ae5f3f8e48ceeb7aabe2b492f8a04e6efbe00417deb71506-afe6d49efc43ccedcff5d04ac2bc35a8a5f32735f1526ce53b3aadb2da22fb4e.png",
+      "sourceSha256": "f417893b3f9888cb407204731bdcdcb6d11c203c19c6c615a5bbbab1a6a9f993",
+      "isGold": false,
+      "originalRank": 3
+    },
+    {
+      "index": 2,
+      "pageId": "[\"SlideVQA\",\"realestateinvestmenttrust-141212011105-conversion-gate01\",5]",
+      "source": "data/train/images/ea1ee6bb9e24126a32a3a4db9985d7daeebf6cc9e6d17da33e78230feabe1d44-4666be342d183ca63bc6cdc0ff423e6a1787cc8609ec1d772df66a27ca0b427d.png",
+      "sourceSha256": "47a32c1fb5c926c692e5cf15cf2974be9419d1d462dcacaba54da54f9575cc6f",
+      "isGold": false,
+      "originalRank": 2
+    },
+    {
+      "index": 3,
+      "pageId": "[\"SlideVQA\",\"realestateinvestmenttrust-141212011105-conversion-gate01\",4]",
+      "source": "data/train/images/d82b10845401022cc2af352d828688ebb9fa88384085d455dc12ea11e021a246-5df9cab26dd8f159f1e4fb88c794d23d5a0f09ece5b4dfca1204306ec818dcba.png",
+      "sourceSha256": "564f5457c5949ec34f7085d50b737469aac11c1a9d7a74095308fa0cf6d7c5c7",
+      "isGold": true,
+      "originalRank": 1
+    },
+    {
+      "index": 4,
+      "pageId": "[\"SlideVQA\",\"realestateinvestmenttrust-141212011105-conversion-gate01\",20]",
+      "source": "data/train/images/f586af13a9be87b9c74e9339de93c6528fa2c5bd3063f26eef1a513f34c3684d-07547140643b954a561534dbbf1a6adf2e90aceb41de9b85156305ead129ad91.png",
+      "sourceSha256": "55e18498ffe738341c71b6d6b4809f873c45ed7259c3f1a18947f45d23ea4003",
+      "isGold": false,
+      "originalRank": 5
+    },
+    {
+      "index": 5,
+      "pageId": "[\"SlideVQA\",\"realestateinvestmenttrust-141212011105-conversion-gate01\",21]",
+      "source": "data/train/images/06c9a96710324d7a840682a429a4c4818854d1180ee234e657f53c837404569c-6e6ec8256c37df31428f7d5f867709a3e405c0aeed6e3cb716277501cd351131.png",
+      "sourceSha256": "21c3ab96308f8c10e88c8f557711bcb6d9f98d8b834ac9096518cca0c12fd1fb",
+      "isGold": false,
+      "originalRank": 4
+    }
+  ]
+}

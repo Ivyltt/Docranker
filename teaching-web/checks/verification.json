@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "version": "teaching-bilingual-v5",
+  "chapters": 8,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "mode": "file:// offline",
+  "viewports": [
+    "1440x1050",
+    "390x844",
+    "320x800",
+    "projection"
+  ],
+  "javascriptErrors": [],
+  "failedRequests": [],
+  "httpRequests": [],
+  "defaultTextCharacters": {
+    "zh": {
+      "rag": 1138,
+      "data": 1248,
+      "retrieve": 4088,
+      "labels": 3134,
+      "sft": 3288,
+      "results": 1266,
+      "grpo": 2405,
+      "lab": 635
+    },
+    "en": {
+      "rag": 2891,
+      "data": 3127,
+      "retrieve": 10273,
+      "labels": 9014,
+      "sft": 8116,
+      "results": 2983,
+      "grpo": 6625,
+      "lab": 1657
+    }
+  },
+  "previousDefaultTextCharacters": {
+    "start": 631,
+    "rag": 850,
+    "task": 1090,
+    "data": 1526,
+    "baseline": 1670,
+    "sft": 6992,
+    "evaluate": 1266,
+    "grpo": 2774,
+    "lab": 9720,
+    "sources": 3710
+  },
+  "checks": [
+    "RAG opening and five-stage walkthrough",
+    "visible core teaching",
+    "four document encoding routes and distinct explanations",
+    "per-page notes, refinement and target assembly steps",
+    "visual teacher preparation and visual student SFT explicitly distinguished",
+    "default-visible encoding and teacher rationale sections",
+    "bilingual local SVG diagrams and original diagram zoom",
+    "encoding and teacher selections persist across language switches",
+    "MaxSim row-max-and-sum arithmetic",
+    "top-K coverage and unchanged gold",
+    "LoRA rank arithmetic",
+    "chapter quiz feedback",
+    "original source record",
+    "page4-to-slot3 mapping",
+    "exact saved model outputs",
+    "English completeness",
+    "language persistence and expanded state",
+    "all 3 cases",
+    "new teaching interaction state across languages",
+    "original PNG zoom",
+    "default-open loss and reward labs",
+    "loss slider",
+    "metric selection",
+    "manual ranking",
+    "equal rewards",
+    "source downloads",
+    "code copy",
+    "local links",
+    "mobile menu",
+    "progress persistence",
+    "legacy chapter links"
+  ],
+  "release": "public-sharing-v1",
+  "sourceExportTests": {
+    "passed": 138,
+    "skipped": 5
+  },
+  "checkedAt": "2026-09-14T15:10:59.829350+00:00",
+  "publicChecks": {
+    "status": "passed",
+    "chapters": 8,
+    "languages": [
+      "zh",
+      "en"
+    ],
+    "repositoryLink": "https://github.com/Ivyltt/Docranker",
+    "shareChapterLink": true,
+    "versionNotification": true,
+    "internalLinks": "HTTP 200",
+    "javascriptErrors": []
+  }
+}

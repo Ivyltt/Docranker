@@ -1,0 +1,7 @@
+public/
+__pycache__/
+*.pyc
+checks/preview-*.png
+package-manifest.json
+site-info.js
+dist/

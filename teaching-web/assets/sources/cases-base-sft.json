@@ -1,0 +1,646 @@
+[
+  {
+    "id": "eval:PH_2016.06.08_Economy-Final.pdf:0",
+    "title": "格式合格了，排序分数却可以不变",
+    "kind": "format",
+    "query": "According to the report, how do 5% of the Latinos see economic upward mobility for their children?",
+    "queryZh": "报告中，5% 的拉丁裔如何看待子女未来的经济状况？",
+    "queryZhNote": "中文为课堂释义，英文原题按数据逐字保留。",
+    "goldPageIds": [
+      "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",4]"
+    ],
+    "goldCandidateIndices": [
+      1
+    ],
+    "unretrievedGoldPageIds": [],
+    "goldTotal": 1,
+    "goldAnswer": null,
+    "goldNote": "gold 是原数据标注的相关页面集合；当前清单没有官方答案文本，且标注可能遗漏相关页面。",
+    "retrievalPoolSize": 23,
+    "pages": [
+      {
+        "index": 1,
+        "pageId": "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",4]",
+        "document": "PH_2016.06.08_Economy-Final.pdf",
+        "pageNumber": 4,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": null,
+        "image": "assets/pages/2352ee26e3c8568a2330.jpg",
+        "imageOriginal": "assets/pages/2352ee26e3c8568a2330.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/62273084c95e6fa9cbc5b1a78132830edea670786fed8e7a205abb5d11b784ce-33ddfac4959e2fee4e36d578e2911f1cdd6e0858e290e9a729c18fde6215f599.png",
+        "sourceSha256": "2f3b8b34fd43539c29aa3f802a6c0a8ea36d181351468fc25cfb471a21d00c63",
+        "score": 23.169740676879883,
+        "isGold": true,
+        "reviewedEvidence": null
+      },
+      {
+        "index": 2,
+        "pageId": "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",16]",
+        "document": "PH_2016.06.08_Economy-Final.pdf",
+        "pageNumber": 16,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": null,
+        "image": "assets/pages/4d194a49d0d576e13ee5.jpg",
+        "imageOriginal": "assets/pages/4d194a49d0d576e13ee5.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/c647e01914b0f37eea616c6fa6729a2710e135ee9f6026b4c4c9802149b33760-35e9c699bd78f1da49b4f736791afcb34158e3eea6693e7fc5ae2de09478cb8f.png",
+        "sourceSha256": "1094176859156daddbee370826cb4013153512fccd9dfeddc0f1967ac7eec259",
+        "score": 22.908973693847656,
+        "isGold": false,
+        "reviewedEvidence": null
+      },
+      {
+        "index": 3,
+        "pageId": "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",12]",
+        "document": "PH_2016.06.08_Economy-Final.pdf",
+        "pageNumber": 12,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": null,
+        "image": "assets/pages/0bf1d3f97f94e6d66b57.jpg",
+        "imageOriginal": "assets/pages/0bf1d3f97f94e6d66b57.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/3e64024ddc389f0fffcdcb02fc978e966b1546ffa967de2f89adeb51f22f2b35-02a3bd09adb11bc89fd43e366ccf5173f8b1587cef73296d1215a3b936e81659.png",
+        "sourceSha256": "6fe84b3686750e6cf42bb2ebbb61a055c702a34ab132ad9d857213409f8c6735",
+        "score": 21.067859649658203,
+        "isGold": false,
+        "reviewedEvidence": null
+      },
+      {
+        "index": 4,
+        "pageId": "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",2]",
+        "document": "PH_2016.06.08_Economy-Final.pdf",
+        "pageNumber": 2,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": null,
+        "image": "assets/pages/605e7259249944deda4e.jpg",
+        "imageOriginal": "assets/pages/605e7259249944deda4e.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/a36dec4af15b32a3c4e2ca68e25ba69a43842a2f21033e828a9e5f30f0de3b10-6b6285ba56c8ff7b9ac9e63078d867bc125b8ccd91eca38b426e47aab9966236.png",
+        "sourceSha256": "1a4f1f4f9dcad4d72aa49adf79a066e7a2d342e38642d63c41ca498a7cda446c",
+        "score": 20.92376136779785,
+        "isGold": false,
+        "reviewedEvidence": null
+      },
+      {
+        "index": 5,
+        "pageId": "[\"evaluation\",\"PH_2016.06.08_Economy-Final.pdf\",14]",
+        "document": "PH_2016.06.08_Economy-Final.pdf",
+        "pageNumber": 14,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": null,
+        "image": "assets/pages/7028c3c86e6cd29da58c.jpg",
+        "imageOriginal": "assets/pages/7028c3c86e6cd29da58c.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/d687f0a627afc730cb703dbf8800827765a369daf7b86d6acd026a8a90797456-a3ab835d518b749d9d96ddcf67e611c854c1d889374fc1ed52940bfc0d0578ac.png",
+        "sourceSha256": "2d96783fa10d1316d83eff3cfa123379390c2fce1f6ede053eb3cf85b820593a",
+        "score": 19.260814666748047,
+        "isGold": false,
+        "reviewedEvidence": null
+      }
+    ],
+    "variants": {
+      "retrieval": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": null,
+        "fallback": null,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 1.0,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 1.0,
+          "hit@3": 1.0,
+          "ndcg@3": 1.0,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 1.0
+        }
+      },
+      "base": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": "<think>page 1 provides a pie chart showing the percentage of Latinos who expect their children will be better off financially than they themselves are now, which is relevant to the question.</think>\n<think>page 2 presents a detailed breakdown of Latino views on their children's financial future, including the percentage of those who expect their children to be better off, about the same, or less well off compared to them. This directly answers the question.</think>\n<answer>[2, 1, 5, 4, 3]</answer>",
+        "fallback": true,
+        "fallbackReason": "expected a nonempty <think> rationale followed by one complete <answer> permutation of 1..5, without other text",
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 1.0,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 1.0,
+          "hit@3": 1.0,
+          "ndcg@3": 1.0,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 1.0
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/base-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": [
+          2,
+          1,
+          5,
+          4,
+          3
+        ]
+      },
+      "sft": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": "<think>Page 1 directly answers the question, stating that 5% of Latinos believe their children will be \"Less well off\" financially compared to them. Pages 2, 3, 4, and 5 are less useful as they discuss general optimism about financial futures but do not specify the percentage of Latinos who see economic upward mobility for their children.</think><answer>[1, 2, 3, 4, 5]</answer>",
+        "fallback": false,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 1.0,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 1.0,
+          "hit@3": 1.0,
+          "ndcg@3": 1.0,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 1.0
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/sft-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": null
+      }
+    },
+    "review": {
+      "reviewedVariants": [],
+      "summary": "未纳入既有人工视觉核查；这里只复现保存的输入、输出、排序及原标签分数。",
+      "notes": [
+        "不要将这条示例的模型说明当成人工确认的答案。"
+      ],
+      "rankingFinding": null,
+      "baseFindings": [],
+      "sftFindings": [],
+      "source": null,
+      "scope": "没有人工核查结论。"
+    },
+    "lesson": "Base 的原文有两个 think 块，系统未采纳其中的排列；SFT 输出通过协议，但实际得分顺序仍相同。这个例子只说明格式与评分的区别，未做人工作答事实核查。",
+    "source": "data/evaluation_candidates.jsonl",
+    "selectionReason": "取正式评估文件的第一题，展示格式差异与同分现象"
+  },
+  {
+    "id": "eval:05-03-18-political-release.pdf:5",
+    "title": "排对了页面，解释仍可能读错图",
+    "kind": "improvement",
+    "query": "How many Demoncratic people in the survey of U.S. adults conducted April 25- May 1, 2019 said neither the Republican Party nor the Democratic Party  has ‘high ethical standards'?",
+    "queryZh": "在题面所称 2019 年 4 月 25 日至 5 月 1 日的美国成年人调查中，有多少民主党受访者认为两党都没有“高伦理标准”？",
+    "queryZhNote": "中文为课堂释义，英文原题按数据逐字保留。",
+    "goldPageIds": [
+      "[\"evaluation\",\"05-03-18-political-release.pdf\",11]",
+      "[\"evaluation\",\"05-03-18-political-release.pdf\",16]"
+    ],
+    "goldCandidateIndices": [
+      2
+    ],
+    "unretrievedGoldPageIds": [
+      "[\"evaluation\",\"05-03-18-political-release.pdf\",16]"
+    ],
+    "goldTotal": 2,
+    "goldAnswer": null,
+    "goldNote": "gold 是原数据标注的相关页面集合；当前清单没有官方答案文本，且标注可能遗漏相关页面。",
+    "retrievalPoolSize": 17,
+    "pages": [
+      {
+        "index": 1,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",10]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 10,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 9,
+        "image": "assets/pages/815ece571fb51c51172b.jpg",
+        "imageOriginal": "assets/pages/815ece571fb51c51172b.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/5f3064a17969b0444885740accf4966ce59e12d1ba1aca2bb92d6be5f0a274b5-d6628d280584cd258f8b64577f81b36ffe34da0b9957b2425dd2dabb2cafe8ed.png",
+        "sourceSha256": "c6f28c851b1234cc11810b6307a2e85b1dbcf71eb0139709b370b794fed0d329",
+        "score": 40.664398193359375,
+        "isGold": false,
+        "reviewedEvidence": "比较公众对共和党/民主党的has good policy ideas、has high ethical standards、is too extreme。伦理标准两条是41%/42%，没有Democrat受访者认为neither party的统计分组。"
+      },
+      {
+        "index": 2,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",11]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 11,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 10,
+        "image": "assets/pages/a9a0574e7ebcae8aab45.jpg",
+        "imageOriginal": "assets/pages/a9a0574e7ebcae8aab45.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/f82a47d706baf16c9a5d54fdd03eed3c12d1973396939d7e30d57f62ca840f06-d75730ef3b02f960de765deb5a5f8e3191bec75458b64ed84874cea4ae6d9ebc.png",
+        "sourceSha256": "0877ea9722ca4d47d6f339984a3f026d890da51e49b54e76e8ecad53bde84e9e",
+        "score": 39.68695831298828,
+        "isGold": true,
+        "reviewedEvidence": "图三列依次是Describes both parties、Describes one party not the other、Describes neither party。Total行为17/47/25；Democrat行为18/55/18。段落也明确Democrats认为neither为18%。所以47%是公众认为仅一党符合，不是neither；公众neither为25%。脚注年份是2018，不是题面2019。"
+      },
+      {
+        "index": 3,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",3]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 3,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 2,
+        "image": "assets/pages/464598400442563f87e1.jpg",
+        "imageOriginal": "assets/pages/464598400442563f87e1.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/b2037c129a38dea7313378ea64d1ddda365652df5d24cee040583a50c02ee882-8fd20b9f1d4df34cb65b8bdb294af505532a01c6749748c61355cc41d52221b1.png",
+        "sourceSha256": "4759757696c6146597372d3118a9d39d67b69f36d46d585ebd581889538d9ed6",
+        "score": 38.229949951171875,
+        "isGold": false,
+        "reviewedEvidence": "图Most rate top Trump administration officials’ ethics as not good or poor：Total负面合计58，poor分项36；与正面合计39、excellent分项9并列。调查日期2018年4月25日至5月1日。左侧还讨论两党伦理与政策。"
+      },
+      {
+        "index": 4,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",8]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 8,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 7,
+        "image": "assets/pages/b8ad9a7082ddf79eaf36.jpg",
+        "imageOriginal": "assets/pages/b8ad9a7082ddf79eaf36.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/81897817269fa7a53480960ecd929d5344de365ca9ae6e9c86829d432ab3be96-604347f52d9b2175c79f3eb63cb5d229f9c430401dc07f38ae21e02914f7a069.png",
+        "sourceSha256": "cfd6f7f71caa834612141fa1546212a980724ba9ce52d48093e6c8934f847eac",
+        "score": 36.07123565673828,
+        "isGold": false,
+        "reviewedEvidence": "更详细的同一伦理标准图：Total负面合计58、poor分项36；还有党派、意识形态及独立选民分组。图题明确poor or not good，图例将Poor与Not good区分；日期2018年4月25日至5月1日。"
+      },
+      {
+        "index": 5,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",2]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 2,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 1,
+        "image": "assets/pages/af5f180b1569751c69cb.jpg",
+        "imageOriginal": "assets/pages/af5f180b1569751c69cb.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/87f9b0d71112baf9d5b974998fdf18cabea801dc1e9e89e99d92de15d5d8d238-a603ac8e2c422118c7ec516324822a2d118ace4eb68f54bc8694e944b6aa538a.png",
+        "sourceSha256": "bcf8f9ed1ffaf4f6f89976f1ac79369d329ca555db7c1ae5ffb304bac41bfe77",
+        "score": 35.13528060913086,
+        "isGold": false,
+        "reviewedEvidence": "报告概览。明确调查在2018年4月25日至5月1日进行，样本1503名成人；底部写58%认为政府伦理标准not good or（poor续到下一页）。本页主要图为政策立场和Trump个人行为，不单独列poor36%。"
+      }
+    ],
+    "variants": {
+      "retrieval": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": null,
+        "fallback": null,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 0.5,
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.38685280723454163,
+          "recall@5": 0.5,
+          "hit@5": 1.0,
+          "ndcg@5": 0.38685280723454163
+        }
+      },
+      "base": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": "<think>page 1 provides data on public views of both parties on ethics, including the percentage who say neither party has 'high ethical standards'.</think>\n<answer>[1]</answer>",
+        "fallback": true,
+        "fallbackReason": "expected a nonempty <think> rationale followed by one complete <answer> permutation of 1..5, without other text",
+        "metrics": {
+          "mrr": 0.5,
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.38685280723454163,
+          "recall@5": 0.5,
+          "hit@5": 1.0,
+          "ndcg@5": 0.38685280723454163
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/base-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": [
+          1
+        ]
+      },
+      "sft": {
+        "ranking": [
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": "<think>Page 2 contains the answer, stating that 47% of the public says neither party has high ethical standards. Pages 1, 3, 4, and 5 are less useful as they discuss different aspects of the survey, such as party views on ethics, policy ideas, and Trump administration officials' ethics, without providing the specific statistic requested.</think><answer>[2, 1, 3, 4, 5]</answer>",
+        "fallback": false,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 0.5,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.6131471927654584,
+          "recall@5": 0.5,
+          "hit@5": 1.0,
+          "ndcg@5": 0.6131471927654584
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/sft-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": null
+      }
+    },
+    "review": {
+      "reviewedVariants": [
+        "base",
+        "sft"
+      ],
+      "summary": "原标签下的页面排序改善，与说明事实正确性应分别报告；本例还需明确题面年份冲突。",
+      "notes": [
+        "题面写2019，而候选页面调查脚注明确2018。这是源问题与材料年份不一致；不擅自改题，不把2018的18%冒称为已核实2019答案。"
+      ],
+      "rankingFinding": "按固定原标签，SFT将唯一已检索到的gold输入Page2排到第一，Recall@1由0到0.5；另一gold页16未检索到，仍在分母且未作本次视觉核验。",
+      "baseFindings": [
+        "Base原始说明称输入Page1包含neither统计；实际该页只比较两党总公众评分，没有neither交叉统计。",
+        "Base只输出[1]而非五候选完整排列，因此正式得分来自检索原序回退，不能叫有效模型排序。"
+      ],
+      "sftFindings": [
+        "SFT称47%公众认为neither party具有高伦理标准；实际47%是公众认为仅一党符合，公众neither为25%。",
+        "问题询问Democratic受访者，2018原图Democrat/Neither为18%，SFT混淆人群且读错列。"
+      ],
+      "source": "outputs/classroom-tools/full-test-case-review/review.json",
+      "scope": "仅既有抽查的两题、Base 与 SFT 说明和这两题的 10 个候选实例（6 张不同原图）。未核验漏召回的 gold 页，也未推断全部 1658 题的事实正确率。",
+      "createdAt": "2026-09-14T04:30:21.404760+00:00"
+    },
+    "lesson": "SFT 将唯一已召回的 gold 提到第 1 位，Recall@1 从 0 升为 1/2。已存人工核查同时发现人群、图表列和题面年份问题。",
+    "source": "data/evaluation_candidates.jsonl",
+    "selectionReason": "复用旧回放的既定已核查例"
+  },
+  {
+    "id": "eval:05-03-18-political-release.pdf:0",
+    "title": "分数下降后，还要核对标签与原图",
+    "kind": "regression",
+    "query": "Among the adults conducted the survey on April 25 - May 1 2018, how many adults rated Trump's government ethical standards as poor? ",
+    "queryZh": "在 2018 年 4 月 25 日至 5 月 1 日接受调查的成年人中，有多少人认为特朗普政府的伦理标准“差”？",
+    "queryZhNote": "中文为课堂释义，英文原题按数据逐字保留。",
+    "goldPageIds": [
+      "[\"evaluation\",\"05-03-18-political-release.pdf\",2]",
+      "[\"evaluation\",\"05-03-18-political-release.pdf\",3]"
+    ],
+    "goldCandidateIndices": [
+      1,
+      4
+    ],
+    "unretrievedGoldPageIds": [],
+    "goldTotal": 2,
+    "goldAnswer": null,
+    "goldNote": "gold 是原数据标注的相关页面集合；当前清单没有官方答案文本，且标注可能遗漏相关页面。",
+    "retrievalPoolSize": 17,
+    "pages": [
+      {
+        "index": 1,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",2]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 2,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 1,
+        "image": "assets/pages/af5f180b1569751c69cb.jpg",
+        "imageOriginal": "assets/pages/af5f180b1569751c69cb.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/87f9b0d71112baf9d5b974998fdf18cabea801dc1e9e89e99d92de15d5d8d238-a603ac8e2c422118c7ec516324822a2d118ace4eb68f54bc8694e944b6aa538a.png",
+        "sourceSha256": "bcf8f9ed1ffaf4f6f89976f1ac79369d329ca555db7c1ae5ffb304bac41bfe77",
+        "score": 30.97962188720703,
+        "isGold": true,
+        "reviewedEvidence": "报告概览。明确调查在2018年4月25日至5月1日进行，样本1503名成人；底部写58%认为政府伦理标准not good or（poor续到下一页）。本页主要图为政策立场和Trump个人行为，不单独列poor36%。"
+      },
+      {
+        "index": 2,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",7]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 7,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 6,
+        "image": "assets/pages/f12b6a39e8c505f2ef2f.jpg",
+        "imageOriginal": "assets/pages/f12b6a39e8c505f2ef2f.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/ec2ebcdd4c82798d41c671a806134acfd270a5cca77b85250117070c243eb6fe-d50dbe0e9c7e3667d15ba2ab473f6df20b9fe2aa24aa2728937ddb8836e8632a.png",
+        "sourceSha256": "11b362e2654c47fbba5a3401110ef9501a44a57275ffb5ee20575524fff5e1d2",
+        "score": 29.439760208129883,
+        "isGold": false,
+        "reviewedEvidence": "首段直接逐项写excellent9%、good30%、not good21%、poor36%，并称not good或poor合计58%；右图比较当前及历史政府excellent/good比例。脚注是2018年4月25日至5月1日。直接含poor36%，不能说本页没有具体数字；合计与已四舍五入分项不要强行作精确相减。"
+      },
+      {
+        "index": 3,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",8]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 8,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 7,
+        "image": "assets/pages/b8ad9a7082ddf79eaf36.jpg",
+        "imageOriginal": "assets/pages/b8ad9a7082ddf79eaf36.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/81897817269fa7a53480960ecd929d5344de365ca9ae6e9c86829d432ab3be96-604347f52d9b2175c79f3eb63cb5d229f9c430401dc07f38ae21e02914f7a069.png",
+        "sourceSha256": "cfd6f7f71caa834612141fa1546212a980724ba9ce52d48093e6c8934f847eac",
+        "score": 29.09830665588379,
+        "isGold": false,
+        "reviewedEvidence": "更详细的同一伦理标准图：Total负面合计58、poor分项36；还有党派、意识形态及独立选民分组。图题明确poor or not good，图例将Poor与Not good区分；日期2018年4月25日至5月1日。"
+      },
+      {
+        "index": 4,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",3]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 3,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 2,
+        "image": "assets/pages/464598400442563f87e1.jpg",
+        "imageOriginal": "assets/pages/464598400442563f87e1.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/b2037c129a38dea7313378ea64d1ddda365652df5d24cee040583a50c02ee882-8fd20b9f1d4df34cb65b8bdb294af505532a01c6749748c61355cc41d52221b1.png",
+        "sourceSha256": "4759757696c6146597372d3118a9d39d67b69f36d46d585ebd581889538d9ed6",
+        "score": 28.824125289916992,
+        "isGold": true,
+        "reviewedEvidence": "图Most rate top Trump administration officials’ ethics as not good or poor：Total负面合计58，poor分项36；与正面合计39、excellent分项9并列。调查日期2018年4月25日至5月1日。左侧还讨论两党伦理与政策。"
+      },
+      {
+        "index": 5,
+        "pageId": "[\"evaluation\",\"05-03-18-political-release.pdf\",10]",
+        "document": "05-03-18-political-release.pdf",
+        "pageNumber": 10,
+        "pageNumberLabel": "数据记录页码",
+        "printedPage": 9,
+        "image": "assets/pages/815ece571fb51c51172b.jpg",
+        "imageOriginal": "assets/pages/815ece571fb51c51172b.png",
+        "width": 612,
+        "height": 792,
+        "source": "data/evaluation/images/5f3064a17969b0444885740accf4966ce59e12d1ba1aca2bb92d6be5f0a274b5-d6628d280584cd258f8b64577f81b36ffe34da0b9957b2425dd2dabb2cafe8ed.png",
+        "sourceSha256": "c6f28c851b1234cc11810b6307a2e85b1dbcf71eb0139709b370b794fed0d329",
+        "score": 28.40958023071289,
+        "isGold": false,
+        "reviewedEvidence": "比较公众对共和党/民主党的has good policy ideas、has high ethical standards、is too extreme。伦理标准两条是41%/42%，没有Democrat受访者认为neither party的统计分组。"
+      }
+    ],
+    "variants": {
+      "retrieval": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": null,
+        "fallback": null,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 0.5,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.6131471927654584,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 0.8772153153380493
+        }
+      },
+      "base": {
+        "ranking": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "rawOutput": "<think>page 1 provides an overview of the survey findings, including the date range and the number of respondents.</think>\n<think>page 2 discusses the ethical standards ratings for Trump administration officials compared to previous administrations, but does not provide specific numbers for the survey period mentioned in the question.</think>\n<think>page 3 presents detailed breakdowns of ethical standards ratings by political affiliation, showing that 58% of respondents rated the ethical standards of top Trump administration officials as \"poor\" or \"not good\". This is relevant to the question.</think>\n<think>page 4 repeats information similar to page 3, reinforcing the data about the percentage of respondents rating the ethical standards of top Trump administration officials as \"poor\" or \"not good\".</think>\n<think>page 5 discusses views on both parties' policy ideas and ethical standards, but does not provide specific numbers related to the question asked.</think>\n[3, 4, 1, 2, 5]",
+        "fallback": true,
+        "fallbackReason": "expected a nonempty <think> rationale followed by one complete <answer> permutation of 1..5, without other text",
+        "metrics": {
+          "mrr": 1.0,
+          "recall@1": 0.5,
+          "hit@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.6131471927654584,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 0.8772153153380493
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/base-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": [
+          3,
+          4,
+          1,
+          2,
+          5
+        ]
+      },
+      "sft": {
+        "ranking": [
+          3,
+          4,
+          2,
+          1,
+          5
+        ],
+        "rawOutput": "<think>Page 3 contains the answer, stating that 58% of adults rated Trump's government ethical standards as poor. Pages 1, 2, 4, and 5 are less useful because they discuss ratings of Trump's conduct or the administration's ethical standards generally, without specifying the exact percentage of adults who rated them as poor.</think><answer>[3, 4, 2, 1, 5]</answer>",
+        "fallback": false,
+        "fallbackReason": null,
+        "metrics": {
+          "mrr": 0.5,
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@3": 0.5,
+          "hit@3": 1.0,
+          "ndcg@3": 0.38685280723454163,
+          "recall@5": 1.0,
+          "hit@5": 1.0,
+          "ndcg@5": 0.6509209298071326
+        },
+        "source": "outputs/flash-lite-reference4/evaluation/sft-predictions.jsonl",
+        "rawOutputTruncated": false,
+        "unacceptedProposedRanking": null
+      }
+    },
+    "review": {
+      "reviewedVariants": [
+        "base",
+        "sft"
+      ],
+      "summary": "原标签评分下降、真实页面相关性和解释数值错误是三个具体事实，应同时说明，保留原评分及标签。",
+      "notes": [
+        "输入Page2/记录页7与输入Page3/记录页8均为原标签negative，却直接包含同一调查、同一问题的poor36%或相同图。原相关页标签不完整，属于证据页遗漏，不是图像转换页码错误。",
+        "题目how many的可见材料给的是百分比，没有直接列出该回答人数；本次只核验页面明确写出的比例。"
+      ],
+      "rankingFinding": "原gold为记录页2和3（输入Page1和4）；SFT排首的输入Page3/记录页8不是gold，所以原标签Recall@1为0。但该页直接含同一调查伦理标准Total图，不能据此说它不相关。",
+      "baseFindings": [
+        "Base说明称输入Page2没有具体数字，与该页直接给出poor36%矛盾。",
+        "Base在输入Page3说明里将58%描述成poor或not good合计，类别比SFT准确；但输出有多个think块且没有answer标签，仍属格式回退。",
+        "Base原始提出[3,4,1,2,5]没有被系统采纳；实际评分排列[1,2,3,4,5]来自检索原序。"
+      ],
+      "sftFindings": [
+        "SFT把58%称为poor；原图和输入Page2正文显示poor为36%，58%是not good或poor合计。",
+        "SFT称输入Page2等页没有精确poor比例，实际输入Page2/记录页7首段直接写poor(36%)。"
+      ],
+      "source": "outputs/classroom-tools/full-test-case-review/review.json",
+      "scope": "仅既有抽查的两题、Base 与 SFT 说明和这两题的 10 个候选实例（6 张不同原图）。未核验漏召回的 gold 页，也未推断全部 1658 题的事实正确率。",
+      "createdAt": "2026-09-14T04:30:21.404760+00:00"
+    },
+    "lesson": "SFT 的原标签 Recall@1 下降；人工核查发现排首图实际上相关但漏标，同时说明把 poor 的 36% 错写成 poor 或 not good 合计 58%。三件事应分别报告。",
+    "source": "data/evaluation_candidates.jsonl",
+    "selectionReason": "复用旧回放的既定已核查例"
+  }
+]

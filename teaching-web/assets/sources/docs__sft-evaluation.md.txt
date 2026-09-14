@@ -1,0 +1,51 @@
+# SFT 的完整测试结果
+
+`outputs/flash-lite-reference4` 的最终 SFT 模型已完成全部 **313 篇文档、1,658 个查询**的独立测试。相对原始 Qwen2.5-VL-7B，Macro Recall@1 提高 **3.0881 个百分点**，MRR 提高 **0.030076**；在预先固定的查询配对 bootstrap 下，两项差值的 95% 区间均高于零。以下仅报告已完成的 Base 与 SFT 比较。
+
+| 指标 | Base | SFT，最终 900 步 | SFT − Base | 差值的配对 95% CI |
+| --- | ---: | ---: | ---: | ---: |
+| Macro Recall@1 | 61.0927% | 64.1807% | +3.0881 个百分点 | [+1.2805, +4.9297] 个百分点 |
+| Macro Recall@3 | 79.1375% | 81.9210% | +2.7835 个百分点 | [+1.6022, +3.8793] 个百分点 |
+| Macro Recall@5 | 84.9166% | 84.9166% | 0 | [0, 0] |
+| MRR | 0.758313 | 0.788390 | +0.030076 | [+0.017741, +0.042050] |
+| nDCG@5 | 0.767047 | 0.788251 | +0.021205 | [+0.012930, +0.029686] |
+| 格式失败回退率 | 96.9240%（1,607/1,658） | 0.0603%（1/1,658） | −96.8637 个百分点 | [−97.6493, −96.0193] 个百分点 |
+
+区间使用同一批查询的配对差值，固定 **1,000 次有放回重采样、seed=42、百分位法**。本表的 Recall 是 macro：先为每题计算“命中 gold 页数 / 该题全部 gold 页数”，再对查询取平均。全部查询累计有 **2,107 个 gold 页标注**，按查询计数，并非去重后的页面数；未被检索召回的 gold 仍在分母中。Micro Recall 使用累计 2,107 作为总分母，SFT 的 Micro Recall@1 为 56.4309%。
+
+**Recall@1 与 Hit@1 不同。** 一题有三个 gold，第一名只命中其中一个时，该题 Recall@1 是 1/3，Hit@1 是 1。SFT 在本测试上的 Hit@1 为 71.7129%，不能把它当作 64.1807% 的 Macro Recall@1。MRR 按第一张相关页的位置计分；nDCG 使用全部 gold 构造理想排序分母。所有 1,658 题均纳入统计，没有因格式失败或未召回 gold 而删题。
+
+候选来自文档内 ColQwen2 检索，保持原始检索顺序输入模型，未注入 gold：**1,655 题各有 5 个候选，3 题各有 3 个候选，共 8,284 个候选页次**。三候选查询来自同一篇只有三页的法院文档，遵循 `min(5, 文档实际页数)`。重排序只改变这些候选的位置，因此 Recall@5 保持不变，不能找回候选集合之外的页面。Macro Recall@1 的逐题变化为 175 题改善、107 题退步、1,376 题不变。
+
+Base 和 SFT 使用同一候选文件、图片与编号顺序、提示词和严格解析协议。统一设置为 BF16、SDPA、每批 1 个查询、greedy 生成、最多 256 个新 token，每页像素范围为 200704–401408。模型输入包含问题与页面图像，不包含 gold 标签或检索分数。有效输出须有非空 `<think>` 证据说明和唯一 `<answer>` 完整候选排列；失败时保留检索原序，并照常计入指标。Base 使用原始本地模型；SFT 使用同一模型加最终 LoRA adapter，processor 来自该 SFT 输出目录。
+
+这 **1,658 题是完整 held-out test**，与用于预注册检查点选择的 **160 题 validation** 是不同集合。不能把两者的点值拼成一条模型提升曲线，也不能根据本测试结果重新调参或选择检查点。
+
+SFT 使用冻结的 **7,200 条标注数据、1 个 epoch、900 次 optimizer 更新**；实际为两节点共 4 张 H100，global batch=8。用时采用以下明确范围，训练时间与单卡推理时间不能混算：
+
+| 测量范围 | 实际用时 | 记录含义 |
+| --- | ---: | --- |
+| SFT 的 Trainer 训练循环 | 2,151.630 秒（35 分 51.630 秒） | `trainer_state.json` 中的 `train_runtime` |
+| SFT 完整外层任务 | 2,297.201 秒（38 分 17.201 秒） | 01:17:40.401848–01:55:57.603325 UTC，含任务前置检查、载入、训练及保存收尾；不包含 merge、后续训练或评估 |
+| SFT 的完整 1,658 题推理模块 | 6,006.927 秒（100 分 6.927 秒） | 单张 H100，包含模型加载、图像处理和生成 |
+| SFT 完整测试外层任务 | 6,015.096 秒（100 分 15.096 秒） | 02:06:22.570627–03:46:37.666280 UTC，含推理、指标计算与后验核验 |
+
+以上时间均为 **2026-09-14 UTC**。训练任务为父分配 `3032643` 中的 `0011-reference-sft.json`；测试任务为父分配 `3032644` 中的 `0005-reference-sft-full-test.json`，两者都有真实 `done / exit_code=0`。持久 GPU 父分配继续运行，与这些内部任务已经成功完成是不同状态。推理时间采用资源回执，不将每条预测中的批次耗时简单相加。
+
+证据可以从以下产物追溯。括号内 SHA-256 为前 12 位，完整值在相应 JSON 与独立审计中：
+
+- [冻结运行与源码指纹](../outputs/flash-lite-reference4/control/run.json)、[冻结 SFT 配置](../outputs/flash-lite-reference4/control/sft.json)和[训练 manifest](../outputs/flash-lite-reference4/sft/docreranker_training.json)：记录模型、7,200 条训练数据及完成步数；训练数据 SHA 为 `e843791473aa…`，最终 adapter 为 `e1209b5dad69…`，冻结 controller 为 `3b7918bbc13f…`。
+- [测试输入与顺序绑定](../outputs/flash-lite-reference4/evaluation/sft-input-binding.json)：候选数据 SHA 为 `649b2b3193da…`；绑定全部查询、候选编号、图像路径和顺序。[Base 复用证明](../outputs/flash-lite-reference4/evaluation/base-reuse.json)记录原作业 `3032235` 的真实成功来源及同模型、同代码依赖和同输入的核验，未重新生成 Base 结果。
+- [SFT 完整预测](../outputs/flash-lite-reference4/evaluation/sft-predictions.jsonl)（`680fd9c5dafdd…`）及[正式指标](../outputs/flash-lite-reference4/evaluation/sft-metrics.json)（`b83c9f92a9fb…`）；[生成前来源绑定](../outputs/flash-lite-reference4/evaluation/sft-generation-provenance.json)和[辅助脚本后验记录](../outputs/flash-lite-reference4/evaluation/sft-session-validation.json)将模型、数据与本次任务对应起来。
+- [训练循环记录](../outputs/flash-lite-reference4/sft/trainer_state.json)、[训练外层成功回执](../outputs/gpu-sessions/training4/done/0011-reference-sft.json)、[推理资源记录](../outputs/flash-lite-reference4/evaluation/evaluate-sft-precompute.resources.json)、[测试外层成功回执](../outputs/gpu-sessions/evaluation1/done/0005-reference-sft-full-test.json)及其[归档请求](../outputs/gpu-sessions/evaluation1/done/0005-reference-sft-full-test.request.json)提供实际运行证据。
+- [独立全量审计](../outputs/validation/sft-full-test-independent-review.json)重新调用冻结缓存准入和评估函数，核对全部 1,658 条预测、完整 gold、原始回答、模型身份、输入与输出 SHA，并重算指标及配对区间；所有 canonical 文件字节不变，子进程生成调用为零。审计 SHA-256 为 `22ccfa33bde82916ce8a73cbaf889425fd851abf5ab5becab304c775a5a8ed07`。
+
+独立审计初次额外假定“每题恰好五候选”，因此拒绝了上述三页文档；随后根据原始页清单逐题核验实际候选池，更正为原协议的 `min(5, pool)`，未改任何测试数据、正式指标或模型。[首次拒绝及修正记录](../outputs/validation/sft-full-test-independent-review.initial-guard-rejection.json)已保留。
+
+课堂结论应限定为：**SFT 改善了本次固定协议下的端到端排序表现，并显著提高了输出格式遵循率。** 改善包含格式学习带来的作用，不能据此分离出纯粹的页面理解增益，也不能证明每段证据说明都事实正确；本次审计未逐图核实全部解释的语义。查询 bootstrap 没有按 313 篇文档做聚类重采样，同文档问题的相关性可能影响区间；它也不包含重新训练的随机种子方差。这些结果不构成对其他数据或其他训练种子的保证。
+
+在项目目录下，可只用 CPU 重跑独立审计；该命令只更新独立审计产物，不生成预测或写入正式指标：
+
+```bash
+.venv/bin/python outputs/validation/review-tools/audit-sft-full-test.py
+```

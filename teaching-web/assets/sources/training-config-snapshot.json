@@ -1,0 +1,69 @@
+{
+  "sourceExamples": 7200,
+  "globalStep": 900,
+  "trainableParameters": 20185088,
+  "config": {
+    "model_name_or_path": "models/qwen2.5-vl-7b",
+    "dtype": "bfloat16",
+    "attn_implementation": "sdpa",
+    "processor": {
+      "min_pixels": 200704,
+      "max_pixels": 401408
+    },
+    "lora": {
+      "r": 8,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "sampling": {
+      "enabled": false,
+      "bins": 10
+    },
+    "training": {
+      "num_train_epochs": 1,
+      "learning_rate": 0.0001,
+      "per_device_train_batch_size": 1,
+      "gradient_accumulation_steps": 2,
+      "gradient_checkpointing": false,
+      "bf16": true,
+      "fp16": false,
+      "max_length": null,
+      "packing": false,
+      "completion_only_loss": true,
+      "assistant_only_loss": false,
+      "remove_unused_columns": false,
+      "optim": "adamw_torch",
+      "lr_scheduler_type": "cosine",
+      "warmup_ratio": 0.03,
+      "logging_steps": 5,
+      "save_strategy": "steps",
+      "save_total_limit": 3,
+      "report_to": "none",
+      "seed": 42,
+      "data_seed": 42,
+      "dataloader_num_workers": 0,
+      "save_steps": 50,
+      "save_only_model": false,
+      "ddp_find_unused_parameters": false
+    }
+  },
+  "versions": {
+    "transformers": "4.57.3",
+    "trl": "0.26.2",
+    "peft": "0.18.0",
+    "accelerate": "1.12.0",
+    "datasets": "4.4.1",
+    "torch": "2.9.1",
+    "torchvision": "0.24.1"
+  },
+  "source": "outputs/flash-lite-reference4/sft/docreranker_training.json"
+}

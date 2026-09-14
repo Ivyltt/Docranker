@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174d43">
+  <meta name="description" content="从 RAG 入门到 MMDocIR、ColQwen2 打分、监督标签、SFT/LoRA 和 GRPO：循序渐进的中英双语项目课堂。">
+  <title>把证据排在前面 · DocReranker 交互课堂</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23174d43'/%3E%3Cpath d='M12 11h11l5 5v14H12z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M17 21h7M17 25h7' stroke='%23dbff8a' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="assets/teaching-data.js"></script>
+  <script defer src="assets/teaching-i18n.js"></script>
+  <script defer src="lesson-content.js"></script>
+  <script defer src="foundation-content.js"></script>
+  <script defer src="design-content.js"></script>
+  <script defer src="site-info.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到课堂内容</a>
+  <aside class="sidebar" id="sidebar" aria-label="课程导航">
+    <a class="brand" href="#rag"><span class="brand-symbol" aria-hidden="true">↗</span><span>DocReranker<small id="brand-caption">一道题，走完整个项目</small></span></a>
+    <div class="course-label">CASE STUDY <span id="nav-caption">课堂主线</span></div>
+    <nav id="chapter-nav" aria-label="章节"></nav>
+    <div class="sidebar-bottom"><span id="progress-label">学习进度 · 0 / 8</span><div class="progress-track"><div id="progress-fill"></div></div><p id="sidebar-note">跟着数据，逐步往前。</p><button id="reset-progress" class="text-button">重置学习标记</button></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="topbar-left"><button id="menu-toggle" class="icon-button mobile-menu" aria-label="展开课程目录" aria-expanded="false">☰</button><span class="breadcrumb"><span id="course-caption">交互课堂</span><span>/</span><strong id="crumb">原始数据</strong></span></div><div class="top-actions"><a id="github-link" class="quiet-button project-link" target="_blank" rel="noopener noreferrer" hidden>GitHub</a><button id="share-link" class="quiet-button">分享</button><button id="language-toggle" class="quiet-button language-button" aria-label="Switch to English" lang="en">English</button><button id="glossary-open" class="quiet-button">术语速查 <kbd>/</kbd></button><button id="present-toggle" class="quiet-button" aria-pressed="false">投影模式</button></div></header>
+    <main id="main" tabindex="-1"><div id="lesson-root"></div><footer class="chapter-footer"><button id="previous" class="quiet-button">← 上一节</button><button id="mark-done" class="quiet-button">✓ 标记本节已理解</button><button id="next" class="primary-button">下一节 →</button></footer><div class="page-footnote"><span id="snapshot-caption">离线课堂 · 真实数据与已保存结果</span><span id="release-caption"></span><span id="shortcut-caption">方向键翻页 · / 术语 · P 投影</span></div></main>
+  </div>
+  <dialog id="glossary-dialog" aria-labelledby="glossary-title"><div class="dialog-top"><div><span class="eyebrow">KEEP IT SIMPLE</span><h2 id="glossary-title">遇到术语，随时查。</h2></div><button class="icon-button" data-close="glossary-dialog" aria-label="关闭术语速查">×</button></div><label class="sr-only" for="glossary-search">搜索术语</label><input id="glossary-search" type="search" placeholder="试试：SFT、token、梯度、gold…" autocomplete="off"><div id="glossary-results"></div></dialog>
+  <dialog id="image-dialog" aria-labelledby="image-caption"><div class="dialog-top"><p id="image-caption"></p><button class="icon-button" data-close="image-dialog" aria-label="关闭页面大图">×</button></div><div class="image-scroll"><img id="image-full" alt=""></div></dialog>
+  <aside id="update-notice" class="update-notice" hidden><span id="update-caption"></span><button id="load-latest"></button></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript>本课堂的交互需要启用 JavaScript。所有脚本均在本地，不需要网络或模型服务。</noscript>
+</body>
+</html>

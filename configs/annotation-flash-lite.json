@@ -1,0 +1,18 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "env_file": ".env",
+  "input": "data/train_candidates.jsonl",
+  "output": "data/sft-flash-lite.jsonl",
+  "cache_dir": "outputs/annotation-flash-lite",
+  "limit": 7200,
+  "pilot_limit": 64,
+  "max_cost_usd": 16.0,
+  "workers": 4,
+  "max_image_edge": 1568,
+  "analysis_max_tokens": 250,
+  "refine_max_tokens": 500,
+  "max_attempts": 5,
+  "seed": 42,
+  "exclude_queries": "data/annotation-excluded-query-ids.jsonl",
+  "skip_invalid_examples": true
+}
